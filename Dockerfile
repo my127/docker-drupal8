@@ -7,7 +7,6 @@ RUN apk --update add \
     icu \
     iproute2 \
     libjpeg-turbo \
-    libmcrypt \
     libpng libxml2 \
     libxslt \
     shadow \
@@ -18,7 +17,6 @@ RUN apk --update add \
     g++ \
     icu-dev \
     libjpeg-turbo-dev \
-    libmcrypt-dev \
     libpng-dev \
     libxml2-dev \
     libxslt-dev \
@@ -28,7 +26,6 @@ RUN apk --update add \
     && docker-php-ext-install bcmath \
     && docker-php-ext-configure gd --with-gd --with-freetype-dir=/usr/include/ --with-png-dir=/usr/include/ --with-jpeg-dir=/usr/include/ && docker-php-ext-install gd \
     && docker-php-ext-install intl \
-    && docker-php-ext-install mcrypt \
     && docker-php-ext-install pdo_mysql \
     && docker-php-ext-install soap \
     && docker-php-ext-install xsl \
