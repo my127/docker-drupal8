@@ -7,7 +7,9 @@ RUN apk --update add \
     icu \
     iproute2 \
     libjpeg-turbo \
-    libpng libxml2 \
+    libmcrypt \
+    libpng \
+    libxml2 \
     libxslt \
     shadow \
     supervisor \
@@ -17,21 +19,25 @@ RUN apk --update add \
     g++ \
     icu-dev \
     libjpeg-turbo-dev \
+    libmcrypt-dev \
     libpng-dev \
     libxml2-dev \
     libxslt-dev \
     make \
     openssl-dev \
   # php extensions \
-    && docker-php-ext-install bcmath \
-    && docker-php-ext-configure gd --with-gd --with-freetype-dir=/usr/include/ --with-png-dir=/usr/include/ --with-jpeg-dir=/usr/include/ && docker-php-ext-install gd \
-    && docker-php-ext-install intl \
-    && docker-php-ext-install opcache \
-    && docker-php-ext-install pdo_mysql \
-    && docker-php-ext-install soap \
-    && docker-php-ext-install xsl \
-    && pecl install xdebug && docker-php-ext-enable xdebug \
-    && docker-php-ext-install zip \
+    && docker-php-ext-configure gd --with-gd --with-freetype-dir=/usr/include/ --with-png-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
+    && docker-php-ext-install \
+      bcmath \
+      gd \
+      intl \
+      opcache \
+      pdo_mysql \
+      soap \
+      xsl \
+      zip \
+    && printf "\n" | pecl install mcrypt-1.0.2 && docker-php-ext-enable mcrypt \
+    && printf "\n" | pecl install xdebug && docker-php-ext-enable xdebug \
   # clean \
     && apk del \
     autoconf g++ make freetype-dev libjpeg-turbo-dev libpng-dev openssl-dev libxml2-dev libmcrypt-dev libxslt-dev icu-dev \
