@@ -13,7 +13,7 @@ services:
   #   build:
   #     context: ./7.2/alpine/fpm
   #     dockerfile: console.Dockerfile
-  #   image: my127/drupal8-console:7.2-fpm-alpine
+  #   image: my127/drupal8:7.2-fpm-alpine-console
   #   depends_on:
   #     - php72-fpm-alpine-base
 
@@ -27,6 +27,6 @@ services:
     build:
       context: ./7.2/stretch/fpm
       dockerfile: console.Dockerfile
-    image: my127/drupal8-console:7.2-fpm-stretch
+    image: my127/drupal8:7.2-fpm-stretch-console
     depends_on:
       - php72-fpm-stretch-base
