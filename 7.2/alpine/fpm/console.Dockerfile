@@ -2,7 +2,7 @@ FROM my127/php:7.2-fpm-alpine-console
 
 RUN apk --update add \
   # package dependencies \
-    redis
+    redis \
     libmemcached \
   # package dependencies only needed for the duration of the build \
     libmemcached-dev \
