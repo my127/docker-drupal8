@@ -4,28 +4,36 @@ services:
   # Base Images
 
   php72-fpm-stretch-base:
+    image: my127/drupal8:7.2-fpm-stretch
     build:
       context: ./
       dockerfile: base.Dockerfile
-    image: my127/drupal8:7.2-fpm-stretch
+      args:
+        VERSION: 7.2
 
   php73-fpm-stretch-base:
+    image: my127/drupal8:7.3-fpm-stretch
     build:
       context: ./
       dockerfile: base.Dockerfile
-    image: my127/drupal8:7.3-fpm-stretch
+      args:
+        VERSION: 7.3
 
 
   # Console Images
 
   php72-fpm-stretch-console:
+    image: my127/drupal8:7.2-fpm-stretch-console
     build:
       context: ./
       dockerfile: console.Dockerfile
-    image: my127/drupal8:7.2-fpm-stretch-console
+      args:
+        VERSION: 7.2
 
   php73-fpm-stretch-console:
+    image: my127/drupal8:7.3-fpm-stretch-console
     build:
       context: ./
       dockerfile: console.Dockerfile
-    image: my127/drupal8:7.3-fpm-stretch-console
+      args:
+        VERSION: 7.2
