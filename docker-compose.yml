@@ -1,28 +1,31 @@
 version: '3'
 services:
 
-  # PHP 7.2
-
-  # php72-fpm-alpine-base:
-  #   build:
-  #     context: ./7.2/alpine/fpm
-  #     dockerfile: base.Dockerfile
-  #   image: my127/drupal8:7.2-fpm-alpine
-
-  # php72-fpm-alpine-console:
-  #   build:
-  #     context: ./7.2/alpine/fpm
-  #     dockerfile: console.Dockerfile
-  #   image: my127/drupal8:7.2-fpm-alpine-console
+  # Base Images
 
   php72-fpm-stretch-base:
     build:
-      context: ./7.2/stretch/fpm
+      context: ./
       dockerfile: base.Dockerfile
     image: my127/drupal8:7.2-fpm-stretch
 
+  php73-fpm-stretch-base:
+    build:
+      context: ./
+      dockerfile: base.Dockerfile
+    image: my127/drupal8:7.3-fpm-stretch
+
+
+  # Console Images
+
   php72-fpm-stretch-console:
     build:
-      context: ./7.2/stretch/fpm
+      context: ./
       dockerfile: console.Dockerfile
     image: my127/drupal8:7.2-fpm-stretch-console
+
+  php73-fpm-stretch-console:
+    build:
+      context: ./
+      dockerfile: console.Dockerfile
+    image: my127/drupal8:7.3-fpm-stretch-console
